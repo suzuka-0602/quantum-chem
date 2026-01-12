@@ -39,3 +39,19 @@ z_opt = [sol for sol in z_star if sol.is_real][0]
 E_opt = sp.simplify(E_sym.subs(z, z_opt))
 print("z_opt =", z_opt)
 print("E_opt =", E_opt)
+
+# #-----↑代数計算-----↓数値計算-----
+
+
+# #積分
+# def calculate_energy(z_val):
+#     val, err=quad(integrand_sci, 0, np.inf, args=(z_val))
+#     return val
+
+# #エネルギー期待値が最小になるように最適化
+# result = minimize_scalar(calculate_energy, bounds=(0.1, 3.0), method='bounded')
+# optimal_zeta = result.x
+# min_energy = result.fun
+
+# print("変分パラメータの最適値 : {:.5f}".format(optimal_zeta))
+# print("基底エネルギーの近似値 : {:.5f} hartree".format(min_energy))
