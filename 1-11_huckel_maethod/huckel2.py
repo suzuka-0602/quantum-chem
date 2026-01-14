@@ -16,6 +16,8 @@ combination=[ #結合の仕方をインデックスで管理
 a=0 #coulomb積分
 b=1 #共鳴積分
 
+step=0.1 #ステップ幅
+region=[-10.0, 10.0] #エネルギー探索範囲
 
 #-----行列生成-----
 def matrix(e):
@@ -31,5 +33,10 @@ def matrix(e):
 #永年方程式を解く
 def det(e):
     return np.linalg.det(matrix(e))
-result=root_scalar(det, bracket=(1, 10))
-print(result.root)
+
+i=region[0]
+while i < region[1]:
+    if det(i)*det(i+step)<0:
+        result=root_scalar(det, bracket=(i, i+step))
+        print("{:.5f} hartree".format(result.root))
+    i+=step
