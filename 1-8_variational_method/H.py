@@ -13,7 +13,7 @@ def trial_function(type):
     elif type=="Gauss":
         return (2*z/sp.pi)**sp.Rational(3, 4)*sp.exp(-z*r**2)
     else:
-        print("error : not deffined type")
+        print("error : not defined type")
         exit()
 psi=trial_function(type="Slater")
 
@@ -42,6 +42,7 @@ print("E_opt =", E_opt)
 
 # #-----↑代数計算-----↓数値計算-----
 
+# integrand_sci = sp.lambdify((r, z), integrand_sym, 'numpy')
 
 # #積分
 # def calculate_energy(z_val):
