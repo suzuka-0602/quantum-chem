@@ -5,7 +5,7 @@ from scipy.integrate import nquad
 from scipy.optimize import minimize_scalar
 import numpy as np
 
-z, r1, r2,=sym.symbols('z r1 r2')
+z, r1, r2 = sym.symbols('z r1 r2', real=True, positive=True)
 #試行関数
 psi = (z**3/sym.pi) * (sym.exp(-z*r1)) *(sym.exp(-z*r2))
 
